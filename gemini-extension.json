@@ -1,0 +1,11 @@
+{
+  "name": "renderball",
+  "version": "1.0.0",
+  "description": "Build designed, animated, editable presentations on Renderball: you write the outline and the deck, Renderball checks, renders and hosts it, the user edits it in the browser. No account needed to start.",
+  "mcpServers": {
+    "renderball": {
+      "httpUrl": "https://renderball.com/api/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

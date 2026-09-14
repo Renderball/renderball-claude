@@ -1,0 +1,25 @@
+{
+  "name": "renderball",
+  "owner": {
+    "name": "Renderball",
+    "url": "https://renderball.com"
+  },
+  "metadata": {
+    "description": "Renderball's plugins for Claude Code and Cowork: build presentations your AI writes and you edit."
+  },
+  "plugins": [
+    {
+      "name": "renderball",
+      "displayName": "Renderball",
+      "description": "Build designed, animated, editable presentations on Renderball \u2014 your AI writes the deck, you edit it in the browser. No account needed to start.",
+      "version": "1.0.0",
+      "source": "./plugins/renderball",
+      "keywords": [
+        "presentations",
+        "decks",
+        "slides",
+        "pitch deck"
+      ]
+    }
+  ]
+}

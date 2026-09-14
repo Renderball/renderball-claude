@@ -1,0 +1,47 @@
+{
+  "name": "@renderball/agent-toolkit",
+  "version": "0.1.0",
+  "description": "Give any AI agent the ability to build designed, editable presentations on Renderball: create a deck, send the file your agent wrote, get the link. Works with the Vercel AI SDK, the OpenAI Agents SDK, LangChain, or plain function calling. No account needed to start.",
+  "license": "MIT",
+  "homepage": "https://renderball.com/docs/agents",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agarces1999/renderball-skills",
+    "directory": "packages/agent-toolkit"
+  },
+  "keywords": [
+    "renderball",
+    "presentations",
+    "deck",
+    "slides",
+    "ai agent",
+    "tools",
+    "vercel ai sdk",
+    "openai agents",
+    "langchain",
+    "mcp"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

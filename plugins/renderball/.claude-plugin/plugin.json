@@ -1,0 +1,21 @@
+{
+  "name": "renderball",
+  "displayName": "Renderball",
+  "version": "1.0.0",
+  "description": "Build designed, animated, editable presentations on Renderball: you write the outline and the deck, Renderball checks, renders and hosts it, the user edits it in the browser. No account needed to start.",
+  "author": {
+    "name": "Renderball",
+    "url": "https://renderball.com"
+  },
+  "homepage": "https://renderball.com/docs/agents",
+  "repository": "https://github.com/agarces1999/renderball-skills",
+  "license": "MIT",
+  "keywords": [
+    "presentations",
+    "decks",
+    "slides",
+    "pitch deck",
+    "design",
+    "mcp"
+  ]
+}
