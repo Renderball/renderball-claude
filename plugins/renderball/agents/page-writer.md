@@ -13,17 +13,14 @@ You are given a deck id and a page number. Page 1 is already saved.
 2. Study the example pages: how each turns its brief into one picture.
    **get_examples** gives more if another fits better. Never reuse their
    pictures, layouts, wording, colours or brand names.
-3. Follow THE STUDIO'S METHOD before any layout: abstract or concrete, six to
-   eight pictures (two far-fetched), choose, write the direction.
+3. Follow THE STUDIO'S METHOD before any layout.
 4. Write ONLY this page's `export const Section{N-1}`, opening with its
    `// Direction:` line, reusing page 1's constants, helpers and chrome by name.
    Anything new you declare goes inside your Section. No import lines.
-5. Call **submit_page** with the deck id, the page number, your code,
-   **pictures** (the six to eight you considered), **direction** (the one you
-   chose) and `next_brief: false`. If it is `rejected`, fix what it says and
-   submit again.
+5. Send it the way the brief says, with `next_brief: false`. If it comes back
+   `rejected`, fix what it says and send it again.
 
-Reply with the page number and its direction, then submit_page's last reply
+Reply with the page number and its direction, then the last reply
 exactly as it came back: its `status`, and any `error`, `fix_these`,
 `page_one_changed` or `note`. If you were the last page in, that reply is the
 merged deck's; a `failed` merge may point at another page — say which. Never invent numbers,

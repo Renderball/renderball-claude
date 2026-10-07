@@ -60,34 +60,22 @@ each with your full attention.** Page 1 first, because it sets the deck's
 whole design system; every other page continues page 1's file.
 
 1. **create_deck** with the brief, the brand, and your outline, one entry per
-   page (every page needs a headline). The reply carries the deck's id, its
-   editor link and **page 1's brief**: the method, the rules, the brand facts
-   and example pages chosen for what page 1 has to do.
-2. **Page 1:** study the examples, follow the method, write the file with page 1
-   and every shared colour, helper and piece of chrome, and send it with
-   **submit_page**, page 1, plus **pictures** (the six to eight you considered)
-   and **direction** (the one you chose).
-3. **Every other page:** each **submit_page** reply carries the **next page's
-   brief** and its examples. Do the same for each page, with your full attention
-   on it. A page is accepted only after its brief was handed to you. If you can
-   run helpers in parallel (the plugin's `page-writer` agent in Claude Code and
-   Cowork), a helper takes its page's full brief with **get_page_brief** and
-   sends `next_brief: false`.
-4. **When the last page is saved** the deck is merged, checked and rendered.
-   If helpers wrote the pages, wait until they have all reported, then call
-   **deck_status** until it is ready and **see_deck** to look yourself.
-   The reply carries the pages as images (**see_deck** shows them any time)
-   and `fix_these` when our checks found something. Fix every item, and look
-   for overlapping or clipped text, odd spacing, an element off its page, and
-   a picture that does not say the page's claim. Resubmit just the pages you
-   change with **submit_page**.
+   page (every page needs a headline).
+2. From then on, **do what each reply says.** Every reply carries the brief for
+   the page to write next, the example pages chosen for it, and how to send it.
+   Study the examples, follow the method, write that page and send it. Page 1
+   holds every shared colour, helper and piece of chrome.
+3. If you can run helpers in parallel (the plugin's `page-writer` agent in
+   Claude Code and Cowork), each helper takes its own page's brief with
+   **get_page_brief** and does the same.
+4. **When the last page is in**, the deck is merged, checked and rendered, and
+   the reply carries the pages as images (**see_deck** shows them any time).
+   Fix what our checks list, and anything overlapping, clipped, off its page or
+   not saying the page's claim, the way the reply says.
 5. **Hand over** the editor link.
 
 Also: **list_decks** (the user's decks), **write_outline** (change an existing
-deck's outline; pages written for the old one are dropped), **share_deck** (a
-public link to send), and **submit_deck** (replaces the whole file of a deck
-whose pages are all written; while pages are still being written it is
-refused, so submit_page each one).
+deck's outline) and **share_deck** (a public link to send).
 
 ## Without the connector
 
