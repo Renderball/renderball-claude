@@ -59,19 +59,20 @@ Write the deck the way the studio's own writer does: **one page at a time,
 each with your full attention.** Page 1 first, because it sets the deck's
 whole design system; every other page continues page 1's file.
 
-1. **create_deck** with the brief, the brand as you know it, and your outline,
-   one entry per page (every page needs a headline). The reply carries the
-   deck's id and its editor link.
-2. **Page 1:** **get_page_brief** (page 1). It carries example pages from the
-   studio: study how each turns its brief into one picture before you write
-   (**get_examples** gives more if another fits better). Find the page's
-   picture with the method, write the file with page 1
-   and every shared colour, helper and piece of chrome, then **submit_page**
-   (page 1).
-3. **Every other page:** **get_page_brief** for that page, its examples,
-   the method, write only that page's Section, **submit_page**. If you can run
-   helpers in parallel (the plugin's `page-writer` agent in Claude Code and
-   Cowork), give each page its own; otherwise go in order.
+1. **create_deck** with the brief, the brand, and your outline, one entry per
+   page (every page needs a headline). The reply carries the deck's id, its
+   editor link and **page 1's brief**: the method, the rules, the brand facts
+   and example pages chosen for what page 1 has to do.
+2. **Page 1:** study the examples, follow the method, write the file with page 1
+   and every shared colour, helper and piece of chrome, and send it with
+   **submit_page**, page 1, plus **pictures** (the six to eight you considered)
+   and **direction** (the one you chose).
+3. **Every other page:** each **submit_page** reply carries the **next page's
+   brief** and its examples. Do the same for each page, with your full attention
+   on it. A page is accepted only after its brief was handed to you. If you can
+   run helpers in parallel (the plugin's `page-writer` agent in Claude Code and
+   Cowork), a helper takes its page's full brief with **get_page_brief** and
+   sends `next_brief: false`.
 4. **When the last page is saved** the deck is merged, checked and rendered.
    If helpers wrote the pages, wait until they have all reported, then call
    **deck_status** until it is ready and **see_deck** to look yourself.
@@ -84,8 +85,9 @@ whole design system; every other page continues page 1's file.
 
 Also: **list_decks** (the user's decks), **write_outline** (change an existing
 deck's outline; pages written for the old one are dropped), **share_deck** (a
-public link to send), and **submit_deck** (a whole file in one call, when you
-cannot go page by page).
+public link to send), and **submit_deck** (replaces the whole file of a deck
+whose pages are all written; while pages are still being written it is
+refused, so submit_page each one).
 
 ## Without the connector
 
