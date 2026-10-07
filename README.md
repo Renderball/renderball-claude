@@ -11,7 +11,7 @@ tools an AI runs in. The product itself lives at https://renderball.com.
     npx skills add Renderball/renderball-skills
 
 **Claude plugin** — Claude on the web, the Claude app, Cowork and Claude Code
-(paid Claude plans). It brings the studio's method, a `/renderball:deck` command and the
+(paid Claude plans). It brings the studio's method, a deck command (`/renderball-deck` in Claude, `/renderball:deck` in Claude Code) and the
 connection, which signs you in with your Renderball account the first time.
 
 - Claude on the web or the app: Customize → Plugins → + → Add marketplace →

@@ -15,9 +15,13 @@ hand, and comes back to you for bigger changes.
 - Never invent numbers, quotes or claims. Renderball's truth check flags
   anything that is not in the user's material. Ask the user for missing
   figures instead of guessing.
-- Declare only the brand you actually know: name, hex colours, font names, a
-  public logo image, the voice. Never guess a colour; leave it out and the
-  deck uses neutral styling.
+- The brand: if you can open the brand's website, **read its real colours
+  and fonts there** and declare them: the lead colour is usually the main
+  buttons and the large coloured areas, not the link colour; note the page
+  background and text colours and the font family names. Reading the site is
+  not guessing; inventing a colour is, so never do that. **Always give the
+  website too**: when you leave the colours out, Renderball reads the site for
+  its palette, fonts and logo.
 - Story first: agree the outline with the user before writing pages when the
   brief leaves room for doubt.
 - When the deck is ready, give the user its one link and tell them they can
@@ -44,6 +48,12 @@ Begin every page's Section component with its direction — step 4 of THE STUDIO
 The Renderball plugin connects it for you (`https://renderball.com/api/mcp/account`);
 the user signs in with their Renderball account in the browser the first
 time. Their deck lands in their account, and the editor link is theirs.
+
+If the Renderball tools are not available, the connector is not connected
+yet. Tell the user exactly where to fix it: in Claude, **Customize → Plugins →
+Renderball → Connectors → Connect**, then sign in with Renderball; in Claude
+Code, `/mcp` → renderball. Draft the outline meanwhile, but do not describe a
+deck as made until the tools have made it.
 
 Write the deck the way the studio's own writer does: **one page at a time,
 each with your full attention.** Page 1 first, because it sets the deck's
