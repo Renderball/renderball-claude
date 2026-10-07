@@ -5,14 +5,14 @@
     "url": "https://renderball.com"
   },
   "metadata": {
-    "description": "Renderball's plugins for Claude Code and Cowork: build presentations your AI writes and you edit."
+    "description": "Renderball's plugin for Claude, Cowork and Claude Code: presentations your AI writes and you edit."
   },
   "plugins": [
     {
       "name": "renderball",
       "displayName": "Renderball",
-      "description": "Build designed, animated, editable presentations on Renderball \u2014 your AI writes the deck, you edit it in the browser. No account needed to start.",
-      "version": "1.0.0",
+      "description": "Make studio-quality, animated, editable presentations with your own AI: it finds each page's picture with the studio's method, writes the deck and checks the rendered pages; you finish it by hand in the Renderball editor. Sign in with your Renderball account.",
+      "version": "1.2.0",
       "source": "./plugins/renderball",
       "keywords": [
         "presentations",

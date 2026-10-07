@@ -8,16 +8,22 @@ tools an AI runs in. The product itself lives at https://renderball.com.
 
 **Skill** — Claude Code, Codex, Cursor, Gemini CLI and any agent that reads skills:
 
-    npx skills add agarces1999/renderball-skills
+    npx skills add Renderball/renderball-skills
 
-**Claude Code and Cowork plugin:**
+**Claude plugin** — Claude on the web, the Claude app, Cowork and Claude Code
+(paid Claude plans). It brings the studio's method, a `/renderball:deck` command and the
+connection, which signs you in with your Renderball account the first time.
 
-    /plugin marketplace add agarces1999/renderball-skills
-    /plugin install renderball@renderball
+- Claude on the web or the app: Customize → Plugins → + → Add marketplace →
+  `Renderball/renderball-skills`, then install **renderball**.
+- Claude Code:
+
+      /plugin marketplace add Renderball/renderball-skills
+      /plugin install renderball@renderball
 
 **Gemini CLI extension:**
 
-    gemini extensions install https://github.com/agarces1999/renderball-skills
+    gemini extensions install https://github.com/Renderball/renderball-skills
 
 **MCP server**, any client: `https://renderball.com/api/mcp` — setup at
 https://renderball.com/docs/agents. No key needed to try; a key from

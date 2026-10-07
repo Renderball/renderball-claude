@@ -2,7 +2,7 @@
   "mcpServers": {
     "renderball": {
       "type": "http",
-      "url": "https://renderball.com/api/mcp"
+      "url": "https://renderball.com/api/mcp/account"
     }
   }
 }

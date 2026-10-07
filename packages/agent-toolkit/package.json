@@ -6,7 +6,7 @@
   "homepage": "https://renderball.com/docs/agents",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agarces1999/renderball-skills.git",
+    "url": "git+https://github.com/Renderball/renderball-skills.git",
     "directory": "packages/agent-toolkit"
   },
   "keywords": [

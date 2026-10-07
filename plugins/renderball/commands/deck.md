@@ -1,8 +1,8 @@
 ---
-description: Build a designed, animated, editable presentation on Renderball from a brief (no account needed)
+description: Make a studio-quality, animated, editable presentation on Renderball from a brief
 argument-hint: <what the deck is for, who it is for, what it should say>
 ---
 
-Build a presentation on Renderball for this brief: $ARGUMENTS
+Make a presentation on Renderball for this brief: $ARGUMENTS
 
-Use the connected `renderball` MCP server: create_deck with the brief, the brand you actually know (never guess a colour) and your page-by-page outline — the reply carries the writing brief — then write the complete deck file exactly as that brief says and submit_deck it (it waits for the import; deck_status only if it still says importing). The ready reply carries the rendered pages as images: look at every page for overlapping or clipped text, odd spacing or an element off its page, and fix the file with another submit_deck before handing over (see_deck shows the pages any time). If the server is not connected, follow the renderball-deck skill with plain web requests. When the deck is ready give the user its one link. Never invent numbers.
+Follow the renderball-deck skill: the studio's method for every page's picture, then the connected `renderball` server — create_deck with the brief, the brand you actually know (never guess a colour) and your page-by-page outline; then ONE PAGE AT A TIME — page 1 yourself (get_page_brief, get_examples for the ones that fit, write, submit_page), then every other page with its own page-writer agent, several at once; each page opens with its `// Direction:` line. When every writer has reported, call deck_status until the deck is ready, then see_deck: look at every rendered page, handle every fix_these item, and fix anything overlapping, clipped, off its page or not saying its claim with submit_page for that page. Give the user the editor link. Never invent numbers; ask for missing ones.

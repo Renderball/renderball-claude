@@ -1,88 +1,97 @@
 ---
 name: renderball-deck
-description: Build a designed, animated, editable presentation on Renderball (renderball.com) from a brief — you write the outline and the deck file, Renderball checks, renders and hosts it, the user edits it in the browser. No account or key needed to start. Use when a user asks for a deck, slides, a pitch or a presentation.
+description: Make a studio-quality, animated, editable presentation on Renderball (renderball.com). Use when the user asks for a deck, slides, a pitch or a presentation. You find each page's picture with the studio's method, write the deck, look at the rendered pages and fix them; the user finishes it by hand in the Renderball editor and shares it with one link.
 ---
 
-# Build a deck on Renderball
+# Make a deck on Renderball
 
 Renderball turns a deck **you write** into a designed, animated, editable
-presentation the user finishes in the Renderball editor. Three steps, no
-setup. The live recipe is always at https://renderball.com/llms.txt — if
-anything here disagrees with it, the live one wins.
+presentation. You write the story and every page; Renderball checks, renders
+and hosts it; the user opens it in the Renderball editor, changes anything by
+hand, and comes back to you for bigger changes.
 
 ## Rules
 
 - Never invent numbers, quotes or claims. Renderball's truth check flags
-  anything not in the user's material. Ask for missing figures.
-- Declare the brand you actually know (name, hex colours, font names, a
-  public logo image, the voice). Never guess a colour — leave it out and the
+  anything that is not in the user's material. Ask the user for missing
+  figures instead of guessing.
+- Declare only the brand you actually know: name, hex colours, font names, a
+  public logo image, the voice. Never guess a colour; leave it out and the
   deck uses neutral styling.
-- Keep the `guest_token` from step 1 and send it with every later request.
-- When the deck is ready, give the user `deck_url` and nothing else: it
-  shows the deck, and its Edit button signs them in and makes it theirs.
+- Story first: agree the outline with the user before writing pages when the
+  brief leaves room for doubt.
+- When the deck is ready, give the user its one link and tell them they can
+  edit it by hand there, or ask you for changes.
 
-## 1. Start the deck with the brand and your outline
+## The studio's method
 
-```bash
-curl -s -X POST https://renderball.com/api/agent/decks \
-  -H 'Content-Type: application/json' \
-  -d @start.json
-```
+Every page is built around ONE picture that IS its idea. This is how to find it.
 
-`start.json`:
+THE STUDIO'S METHOD — how our founder finds a page's picture, in his words:
+"The first thing is I reflect, before anything, on what I can see when I think of this idea. It's like a memory thing — trying to bring up images in my mind of the idea, or of the multiple ideas in the text. Then I take those images and make them work on the slide."
 
-```json
-{
-  "brief": "What the deck is for, who it is for, what it should argue and ask.",
-  "pages": 5,
-  "tone": "optional",
-  "brand": {
-    "name": "Brand name",
-    "website": "their-site.com",
-    "accent": "#0f62fe",
-    "fonts": { "headline": "Family, if known", "body": "Family, if known" },
-    "logo_url": "https://…/logo.svg",
-    "voice": "How the brand speaks, optional"
-  },
-  "outline": [
-    { "label": "…", "description": "…", "visual_concept": "…",
-      "content": { "eyebrow": "…", "headline": "…", "lede": "…", "bullets": ["…"], "caption": "…" } }
-  ]
-}
-```
+Do this for every page, in your thinking, BEFORE you plan any layout:
+1. Decide whether the page's claim is ABSTRACT (a quality: speed, growth, trust, scale, simplicity) or CONCRETE (a product, an object, a screen, a document, a place).
+2. Ask: what can I see when I think of this? List six to eight pictures from the real world — scenes, objects, moments — and what moves in each. At least two must be far-fetched.
+3. ABSTRACT: choose the picture that IS the claim — a stranger should get the claim from the picture alone, without the headline (a race car is speed; a map filling up is time passing). CONCRETE: the picture is the thing itself — list the details that must be exactly right (shape, proportions, the brand's real colours, type and names) and get every one right: no mistakes, no brand mismatch.
+4. Write the page's direction in one sentence: the thing, the motion that acts out the claim, one craft detail.
+5. Build the page from that sentence: the picture takes the stage and the type works around it. Never use the same picture on two pages of a deck.
 
-Only `name` is required inside `brand`; every page needs a `headline`;
-1 to 16 pages. The reply has `deck_id`, `guest_token`, `deck_url` and
-`writing_brief`.
+Begin every page's Section component with its direction — step 4 of THE STUDIO'S METHOD — as a one-line comment: // Direction: <the thing, the motion that acts out the claim, one craft detail>.
 
-## 2. Write the COMPLETE deck file exactly as `writing_brief` says, then send it
+## With the Renderball connector
 
-```bash
-curl -s -X POST "https://renderball.com/api/agent/decks/<deck_id>/file?guest_token=<guest_token>&wait=45" \
-  -H 'Content-Type: text/plain' --data-binary @deck.tsx
-```
+The Renderball plugin connects it for you (`https://renderball.com/api/mcp/account`);
+the user signs in with their Renderball account in the browser the first
+time. Their deck lands in their account, and the editor link is theirs.
 
-The reply is `ready` (with `deck_url`), `importing`, or `failed` with the
-reason — fix the file and send it again.
+Write the deck the way the studio's own writer does: **one page at a time,
+each with your full attention.** Page 1 first, because it sets the deck's
+whole design system; every other page continues page 1's file.
 
-## 3. If it said importing, poll until ready
+1. **create_deck** with the brief, the brand as you know it, and your outline,
+   one entry per page (every page needs a headline). The reply carries the
+   deck's id and its editor link.
+2. **Page 1:** **get_page_brief** (page 1). If the brief lists examples, call
+   **get_examples** with the few that fit what this page must show, and read
+   them. Find the page's picture with the method, write the file with page 1
+   and every shared colour, helper and piece of chrome, then **submit_page**
+   (page 1).
+3. **Every other page:** **get_page_brief** for that page, examples if listed,
+   the method, write only that page's Section, **submit_page**. If you can run
+   helpers in parallel (the plugin's `page-writer` agent in Claude Code and
+   Cowork), give each page its own; otherwise go in order.
+4. **When the last page is saved** the deck is merged, checked and rendered.
+   If helpers wrote the pages, wait until they have all reported, then call
+   **deck_status** until it is ready and **see_deck** to look yourself.
+   The reply carries the pages as images (**see_deck** shows them any time)
+   and `fix_these` when our checks found something. Fix every item, and look
+   for overlapping or clipped text, odd spacing, an element off its page, and
+   a picture that does not say the page's claim. Resubmit just the pages you
+   change with **submit_page**.
+5. **Hand over** the editor link.
 
-```bash
-curl -s "https://renderball.com/api/agent/decks/<deck_id>/status?guest_token=<guest_token>"
-```
+Also: **list_decks** (the user's decks), **write_outline** (change an existing
+deck's outline; pages written for the old one are dropped), **share_deck** (a
+public link to send), and **submit_deck** (a whole file in one call, when you
+cannot go page by page).
 
-Every 10 seconds. Then hand the user `deck_url`.
+## Without the connector
 
-## Have a Renderball API key?
+An AI that can make web requests can use the same flow without signing in.
+The live recipe is at https://renderball.com/llms.txt; if anything here
+disagrees with it, the live one wins.
 
-Send `Authorization: Bearer rb_live_…` instead of `guest_token`: the deck
-lands in that account with no limits. Your user creates a key at
-https://renderball.com/account and can connect you permanently:
-https://renderball.com/docs/agents (the MCP server is
-https://renderball.com/api/mcp).
+1. `POST https://renderball.com/api/agent/decks` with JSON
+   `{"brief", "pages", "brand": {"name", …}, "outline": [{"headline", …}]}`.
+   The reply has `deck_id`, `guest_token`, `deck_url` and `writing_brief`.
+2. Write the complete file as `writing_brief` says and send it:
+   `POST https://renderball.com/api/agent/decks/<deck_id>/file?guest_token=<guest_token>&wait=45`
+   with the file as `text/plain`. The reply is `ready`, `importing`, or
+   `failed` with the reason: fix the file and send it again.
+3. If it said importing, poll
+   `GET https://renderball.com/api/agent/decks/<deck_id>/status?guest_token=<guest_token>`
+   every 10 seconds, then give the user `deck_url`.
 
-## Limits
-
-Decks made without an account are limited per day, take a bounded number
-of imports, and expire after a few days unless the user signs in and
-claims them.
+Decks made without an account are limited per day and expire after a few
+days unless the user signs in (free) from the deck's Edit button.
