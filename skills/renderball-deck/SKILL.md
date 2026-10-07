@@ -62,12 +62,13 @@ whole design system; every other page continues page 1's file.
 1. **create_deck** with the brief, the brand as you know it, and your outline,
    one entry per page (every page needs a headline). The reply carries the
    deck's id and its editor link.
-2. **Page 1:** **get_page_brief** (page 1). If the brief lists examples, call
-   **get_examples** with the few that fit what this page must show, and read
-   them. Find the page's picture with the method, write the file with page 1
+2. **Page 1:** **get_page_brief** (page 1). It carries example pages from the
+   studio: study how each turns its brief into one picture before you write
+   (**get_examples** gives more if another fits better). Find the page's
+   picture with the method, write the file with page 1
    and every shared colour, helper and piece of chrome, then **submit_page**
    (page 1).
-3. **Every other page:** **get_page_brief** for that page, examples if listed,
+3. **Every other page:** **get_page_brief** for that page, its examples,
    the method, write only that page's Section, **submit_page**. If you can run
    helpers in parallel (the plugin's `page-writer` agent in Claude Code and
    Cowork), give each page its own; otherwise go in order.
