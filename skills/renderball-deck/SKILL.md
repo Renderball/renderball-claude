@@ -1,6 +1,6 @@
 ---
 name: renderball-deck
-description: Make a studio-quality, animated, editable presentation on Renderball (renderball.com). Use when the user asks for a deck, slides, a pitch or a presentation. You find each page's picture with the studio's method, write the deck, look at the rendered pages and fix them; the user finishes it by hand in the Renderball editor and shares it with one link.
+description: Make an animated, editable presentation on Renderball (renderball.com). Use when the user asks for a deck, slides, a pitch or a presentation. You find each page's picture with the studio's method, write the deck, look at the rendered pages and fix them; the user finishes it by hand in the Renderball editor and shares it with one link.
 ---
 
 # Make a deck on Renderball
@@ -12,9 +12,10 @@ hand, and comes back to you for bigger changes.
 
 ## Rules
 
-- Never invent numbers, quotes or claims. Renderball's truth check flags
-  anything that is not in the user's material. Ask the user for missing
-  figures instead of guessing.
+- Never invent numbers, quotes or claims. Renderball's truth check compares
+  the figures on the pages with the brief and outline you send, so put the
+  user's real figures there. Ask the user for missing figures instead of
+  guessing.
 - The brand: if you can open the brand's website, **read its real colours
   and fonts there** and declare them: the lead colour is usually the main
   buttons and the large coloured areas, not the link colour; note the page
@@ -61,27 +62,29 @@ whole design system; every other page continues page 1's file.
 
 1. **create_deck** with the brief, the brand, and your outline, one entry per
    page (every page needs a headline).
-2. From then on, **do what each reply says.** Every reply carries the brief for
-   the page to write next, the example pages chosen for it, and how to send it.
-   Study the examples, follow the method, write that page and send it. Page 1
-   holds every shared colour, helper and piece of chrome.
+2. **Each reply carries the brief for the next page:** its place in the outline,
+   the example pages chosen for it, and the file format to write it in. Study
+   the examples, follow the method, write that page to its brief and send it
+   with **submit_page**. Page 1 holds every shared colour, helper and piece of
+   chrome.
 3. If you can run helpers in parallel (the plugin's `page-writer` agent in
    Claude Code and Cowork), each helper takes its own page's brief with
    **get_page_brief** and does the same.
-4. **When the last page is in**, the deck is merged, checked and rendered, and
-   the reply carries the pages as images (**see_deck** shows them any time).
-   Fix what our checks list, and anything overlapping, clipped, off its page or
-   not saying the page's claim, the way the reply says.
+4. **When the last page is in**, the deck is merged, checked and rendered. The
+   reply carries the rendered pages (**see_deck** shows them any time) and
+   anything our checks flagged. Fix those, and anything overlapping, clipped,
+   off its page or not saying the page's claim, by sending the changed pages
+   with **submit_page**.
 5. **Hand over** the editor link.
 
 Also: **list_decks** (the user's decks), **write_outline** (change an existing
-deck's outline) and **share_deck** (a public link to send).
+deck's outline) and **share_deck** (a public link anyone can open — only when the user asks to
+share).
 
 ## Without the connector
 
 An AI that can make web requests can use the same flow without signing in.
-The live recipe is at https://renderball.com/llms.txt; if anything here
-disagrees with it, the live one wins.
+The same recipe is published at https://renderball.com/llms.txt.
 
 1. `POST https://renderball.com/api/agent/decks` with JSON
    `{"brief", "pages", "brand": {"name", …}, "outline": [{"headline", …}]}`.

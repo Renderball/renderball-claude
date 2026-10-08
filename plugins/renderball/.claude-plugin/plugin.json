@@ -1,14 +1,14 @@
 {
   "name": "renderball",
   "displayName": "Renderball",
-  "version": "1.2.5",
-  "description": "Make studio-quality, animated, editable presentations with your own AI: it finds each page's picture with the studio's method, writes the deck and checks the rendered pages; you finish it by hand in the Renderball editor. Sign in with your Renderball account.",
+  "version": "1.2.6",
+  "description": "Make animated, editable presentations with your own AI: it finds each page's picture with the studio's method, writes the deck page by page and checks the rendered pages; you finish it by hand in the Renderball editor. Sign in with your Renderball account.",
   "author": {
     "name": "Renderball",
     "url": "https://renderball.com"
   },
-  "homepage": "https://renderball.com/docs/agents",
-  "repository": "https://github.com/Renderball/renderball-skills",
+  "homepage": "https://renderball.com",
+  "repository": "https://github.com/Renderball/renderball-for-claude",
   "license": "MIT",
   "keywords": [
     "presentations",
@@ -19,7 +19,7 @@
     "mcp"
   ],
   "icon": "./icon.png",
-  "documentationUrl": "https://renderball.com/for/claude-code",
+  "documentationUrl": "https://renderball.com/for/claude",
   "supportUrl": "https://renderball.com/support",
   "privacyPolicyUrl": "https://renderball.com/privacy",
   "termsOfServiceUrl": "https://renderball.com/terms"

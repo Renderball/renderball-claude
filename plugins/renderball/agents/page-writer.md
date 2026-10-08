@@ -17,8 +17,9 @@ You are given a deck id and a page number. Page 1 is already saved.
 4. Write ONLY this page's `export const Section{N-1}`, opening with its
    `// Direction:` line, reusing page 1's constants, helpers and chrome by name.
    Anything new you declare goes inside your Section. No import lines.
-5. Send it the way the brief says, with `next_brief: false`. If it comes back
-   `rejected`, fix what it says and send it again.
+5. Send it with **submit_page**: the deck id, the page number, your code, its
+   one-sentence direction and `next_brief: false`. If it comes back `rejected`,
+   fix what it says and send it again.
 
 Reply with the page number and its direction, then the last reply
 exactly as it came back: its `status`, and any `error`, `fix_these`,

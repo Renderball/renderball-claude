@@ -11,8 +11,8 @@
     {
       "name": "renderball",
       "displayName": "Renderball",
-      "description": "Make studio-quality, animated, editable presentations with your own AI: it finds each page's picture with the studio's method, writes the deck and checks the rendered pages; you finish it by hand in the Renderball editor. Sign in with your Renderball account.",
-      "version": "1.2.5",
+      "description": "Make animated, editable presentations with your own AI: it finds each page's picture with the studio's method, writes the deck page by page and checks the rendered pages; you finish it by hand in the Renderball editor. Sign in with your Renderball account.",
+      "version": "1.2.6",
       "source": "./plugins/renderball",
       "keywords": [
         "presentations",

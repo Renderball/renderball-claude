@@ -15,10 +15,10 @@ tools an AI runs in. The product itself lives at https://renderball.com.
 connection, which signs you in with your Renderball account the first time.
 
 - Claude on the web or the app: Customize → Plugins → + → Add marketplace →
-  `Renderball/renderball-skills`, then install **renderball**.
+  `Renderball/renderball-for-claude`, then install **renderball**.
 - Claude Code:
 
-      /plugin marketplace add Renderball/renderball-skills
+      /plugin marketplace add Renderball/renderball-for-claude
       /plugin install renderball@renderball
 
 **Gemini CLI extension:**
